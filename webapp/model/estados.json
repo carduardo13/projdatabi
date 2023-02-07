@@ -1,0 +1,16 @@
+{
+"listaEstados": [
+    {
+    "uf": "MG",
+    "nome": "Minas Gerais"
+},
+{
+    "uf": "RJ",
+    "nome": "Rio de Janeiro"
+},
+{
+    "uf": "SP",
+    "nome": "São Paulo"
+}
+]
+}

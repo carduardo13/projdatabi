@@ -1,5 +1,4 @@
-{
-"listaEstados": [
+[
     {
     "uf": "MG",
     "nome": "Minas Gerais"
@@ -13,4 +12,3 @@
     "nome": "São Paulo"
 }
 ]
-}

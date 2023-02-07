@@ -12,7 +12,7 @@
 
             <Select id="slc1" 
                     selectedKey="{dados>/pessoa/estado}"
-                    items="{estados>/listaEstados}">
+                    items="{estados>/}">
                 <core:Item id="itm1" key="{estados>uf}" text="{estados>nome}" />        
             </Select>
 

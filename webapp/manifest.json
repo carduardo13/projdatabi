@@ -14,6 +14,12 @@
       "id": "@sap/generator-fiori:basic",
       "version": "1.8.6",
       "toolsId": "5902e803-80bc-47c9-9f26-94ca986ff61d"
+    },
+    "dataSources": {
+      "modelEstados":{
+        "uri": "model/estados.json",
+        "type": "JSON"
+      }
     }
   },
   "sap.ui": {
@@ -57,6 +63,10 @@
         "settings": {
           "bundleName": "projdataba.i18n.i18n"
         }
+      },
+      "estados":{
+        "type": "sap.ui.model.json.JSONModel",
+        "dataSource": "modelEstados"
       }
     },
     "resources": {

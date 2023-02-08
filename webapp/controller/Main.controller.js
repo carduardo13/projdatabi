@@ -14,7 +14,24 @@ sap.ui.define([
                     pessoa: {
                      nome: "",
                      sobrenome: "",
-                     estado: ""
+                     estado: "",
+                     contatos: [
+                        {
+                            nome: "telefone",
+                            tipo: "fone",
+                            valor: "(31)34974022"
+                        },
+                        {
+                            nome: "email",
+                            tipo: "email",
+                            valor: "test@teste.com"
+                        },
+                        {
+                            nome: "celular",
+                            tipo: "fone",
+                            valor: "(31)975649832"
+                        }
+                     ]
                     }
                 }
                 var oModel = new sap.ui.model.json.JSONModel(oDados);

@@ -1,50 +1,64 @@
-<mvc:View controllerName="projdataba.controller.Main"
+<mvc:View xmlns:form="sap.ui.layout.form" controllerName="projdataba.controller.Main"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns:core="sap.ui.core"
     xmlns:layout="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
     xmlns="sap.m">
     <Page id="page" title="{i18n>title}">
         <content> 
 
-           <layout:HorizontalLayout id="layout"  > 
-            <Input id="inpNome" value="{dados>/pessoa/nome}"  valueLiveUpdate="true"/>
-            <Input id="inpSobre" value="{dados>/pessoa/sobrenome}"  valueLiveUpdate="true"/>
+            <layout:HorizontalLayout id="layout" class="sapUiContentPadding">
+                <Input id="inpNome" value="{dados>/pessoa/nome}" valueLiveUpdate="true" />
+                <Input id="inSobre" value="{dados>/pessoa/sobrenome}" valueLiveUpdate="true"/>
 
-            <Text id="txt" text="{dados>/pessoa/nome}  {dados>/pessoa/sobrenome} " />
-
-            <Select id="slc1" 
-                    selectedKey="{dados>/pessoa/estado}"
-                    items="{estados>/}">
-                <core:Item id="itm1" key="{estados>uf}" text="{estados>nome}" />        
-            </Select>
+                <Text id="text" text="{dados>/pessoa/nome} {dados>/pessoa/sobrenome}"/>
             </layout:HorizontalLayout>
 
-            <Table id="tabela" items="{dados>/pessoa/contatos}">
+            <layout:VerticalLayout id="layV" class="sapUiContentPadding">
+
+            <Select id="slec" selectedKey="{dados>pessoa/estado}" items="{estados>/}">
+                <core:ListItem id="int1" key="{estados>uf}" text="{estados>nome}"/>
+            </Select>
+
+            <Table id="tabela" items="{dados>/pessoa/contatos}" alternateRowColors="true">
                 <columns>
+        
                     <Column id="col1">
-                    <Text id="txt1" text="Nome" />
+                        <Text id="tcol1" text="Nome"/>
                     </Column>
-
                     <Column id="col2">
-                    <Text id="txt2" text="Tipo" />
+                        <Text id="tcol2" text="Tipo"/>
                     </Column>
-
                     <Column id="col3">
-                    <Text id="txt3" text="Valor" />
+                        <Text id="tcol3" text="Valor"/>
                     </Column>
                 </columns>
                 <items>
-
-                    <ColumnListItem id="colist">
+                    <ColumnListItem id="colList" type="Navigation" press="onTablePress">
                         <cells>
-                            <Text id="txt4" text="{dados>nome}" />
-                            <Text id="txt5" text="{dados>tipo}" />
-                            <Text id="txt6" text="{dados>valor}" />
+                            <Text id="txt1" text="{dados>nome}"  />
+                            <Text id="txt2" text="{dados>tipo}"  />
+                            <Text id="txt3" text="{dados>valor}" />
                         </cells>
                     </ColumnListItem>
-
                 </items>
             </Table>
+
+            <Panel id="painelDetalhe" headerText="Detalhes">
+                <f:SimpleForm id="form">
+                    <f:content>
+                        <Label id="lbl1" text="Nome"/>
+                        <Input id="nome" value="{dados>nome}" valueLiveUpdate="true"/>
+
+                        <Label id="lbl2" text="Tipo"/>
+                        <Input id="tipo" value="{dados>tipo}" valueLiveUpdate="true"/>
+
+                        <Label id="lbl3" text="Valor"/>
+                        <Input id="valor" value="{dados>valor}" valueLiveUpdate="true"/>
+                    </f:content>
+                </f:SimpleForm>
+            </Panel>
+        </layout:VerticalLayout>
 
         </content>
     </Page>

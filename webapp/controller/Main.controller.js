@@ -37,7 +37,21 @@ sap.ui.define([
                 var oModel = new sap.ui.model.json.JSONModel(oDados);
                 this.getView().setModel(oModel, "dados");
 
+            },
 
+            onTablePress: function(oEvento){
+                var oItemSelec = oEvento.getSource();
+                var oContext = oItemSelec.getBindingContext("dados");
+                var sPath = oContext.getPath();
+
+                var oPaniel = this.byId("painelDetalhe");
+                oPaniel.bindElement(
+                    {
+                        path: sPath,
+                        model: "dados"
+                    }
+                );
             }
+
         });
     });

@@ -1,4 +1,4 @@
-<mvc:View xmlns:form="sap.ui.layout.form" controllerName="projdataba.controller.Main"
+<mvc:View controllerName="projdataba.controller.Main"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns:core="sap.ui.core"
     xmlns:layout="sap.ui.layout"
@@ -20,44 +20,49 @@
                 <core:ListItem id="int1" key="{estados>uf}" text="{estados>nome}"/>
             </Select>
 
-            <Table id="tabela" items="{dados>/pessoa/contatos}" alternateRowColors="true">
-                <columns>
-        
-                    <Column id="col1">
-                        <Text id="tcol1" text="Nome"/>
-                    </Column>
-                    <Column id="col2">
-                        <Text id="tcol2" text="Tipo"/>
-                    </Column>
-                    <Column id="col3">
-                        <Text id="tcol3" text="Valor"/>
-                    </Column>
-                </columns>
-                <items>
-                    <ColumnListItem id="colList" type="Navigation" press="onTablePress">
-                        <cells>
-                            <Text id="txt1" text="{dados>nome}"  />
-                            <Text id="txt2" text="{dados>tipo}"  />
-                            <Text id="txt3" text="{dados>valor}" />
-                        </cells>
-                    </ColumnListItem>
-                </items>
-            </Table>
+           <Table id="tabela" items="{dados>/pessoa/contatos}" >
+            <columns>
+                <Column id="col1">
+                    <Text id="ctxt1" text="Nome"/>
+                </Column>
 
-            <Panel id="painelDetalhe" headerText="Detalhes">
-                <f:SimpleForm id="form">
-                    <f:content>
+                <Column id="col2">
+                    <Text id="ctxt2" text="Tipo"/>
+                </Column>
+
+                <Column id="col3">
+                    <Text id="ctxt3" text="Valor"/>
+                </Column>
+            </columns>
+
+            <items>
+                <ColumnListItem id="colList" type="Navigation" press="onTablePress">
+                    <cells>
+                        <Text id="txt1" text="{dados>nome}"/>
+                        <Text id="txt2" text="{dados>tipo}"/>
+                        <Text id="txt3" text="{dados>valor}"/>
+                    </cells>
+                </ColumnListItem>
+            </items>
+
+           </Table>
+
+            <Panel id="painelDet" headerText="Detalhes">
+                <content>
+                    <f:SimpleForm id="form">
                         <Label id="lbl1" text="Nome"/>
-                        <Input id="nome" value="{dados>nome}" valueLiveUpdate="true"/>
+                        <Input id="nome" value="{dados>nome}"/>
 
                         <Label id="lbl2" text="Tipo"/>
-                        <Input id="tipo" value="{dados>tipo}" valueLiveUpdate="true"/>
+                        <Input id="tipo" value="{dados>tipo}"/>
 
                         <Label id="lbl3" text="Valor"/>
-                        <Input id="valor" value="{dados>valor}" valueLiveUpdate="true"/>
-                    </f:content>
-                </f:SimpleForm>
+                        <Input id="valor" value="{dados>valor}"/>
+                        
+                    </f:SimpleForm>
+                </content>
             </Panel>
+
         </layout:VerticalLayout>
 
         </content>

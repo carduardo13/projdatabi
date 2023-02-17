@@ -18,17 +18,17 @@ sap.ui.define([
                      contatos: [
                         {
                             nome: "telefone",
-                            tipo: "fone",
+                            tipo: 1,
                             valor: "(31)34974022"
                         },
                         {
                             nome: "email",
-                            tipo: "email",
+                            tipo: 2,
                             valor: "test@teste.com"
                         },
                         {
                             nome: "celular",
-                            tipo: "fone",
+                            tipo: 3,
                             valor: "(31)975649832"
                         }
                      ]
@@ -36,25 +36,24 @@ sap.ui.define([
                 }
                 var oModel = new sap.ui.model.json.JSONModel(oDados);
                 this.getView().setModel(oModel, "dados");
+
+                var oView = this.getView();
+                sap.ui.getCore().getMessageManager().registerObject(oView, true);
             },
 
             onTablePress:function(oEvent){
                 var oSelect = oEvent.getSource();
                 var oContext = oSelect.getBindingContext("dados");
-                var sPath =oContext.getPath();
+                var sPath = oContext.getPath();
                 
                 var oPainel = this.byId("painelDet");
-                oPainel.bindElement(
+                    oPainel.bindElement(
                     {
                         path: sPath,
                         model: "dados"
                     }
                 )
             }
-
-
-
-
         });
     });
     

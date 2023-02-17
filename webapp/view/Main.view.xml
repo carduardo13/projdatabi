@@ -50,18 +50,31 @@
             <Panel id="painelDet" headerText="Detalhes">
                 <content>
                     <f:SimpleForm id="form">
-                        <Label id="lbl1" text="Nome"/>
-                        <Input id="nome" value="{dados>nome}"/>
+                        <Label id="lbl1" text="Nome" required="true"/>
+                        <Input id="nome"  
+                         value="{
+                                 path: 'dados>nome', 
+                                 type: 'sap.ui.model.type.String',
+                                 constraints: { minLength: 1, maxLength: 10}
+                                 
+                                }"
+                         valueLiveUpdate="true"/>
 
                         <Label id="lbl2" text="Tipo"/>
-                        <Input id="tipo" value="{dados>tipo}"/>
+                        <Input id="tipo" value="{
+                            path: 'dados>tipo',
+                            type: 'sap.ui.model.type.Integer',
+                             constraints: { minimum: 1, maximum: 3}
+                            }"/>
 
                         <Label id="lbl3" text="Valor"/>
-                        <Input id="valor" value="{dados>valor}"/>
-                        
+                        <Input id="valor" value="{dados>valor}" />
+
                     </f:SimpleForm>
                 </content>
             </Panel>
+
+            
 
         </layout:VerticalLayout>
 
